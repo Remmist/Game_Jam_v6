@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+
+    private string faced;
     
     private void Awake()
     {
@@ -29,14 +31,16 @@ public class PlayerMovement : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
         _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
+        
         if (_movement.x > 0)
         {
             _spriteRenderer.flipX = true;
-        }
-        else
+            faced = "right";
+        } 
+        if(_movement.x < 0)
         {
             _spriteRenderer.flipX = false;
+            faced = "left";
         }
         
         if (_movement.y > 0)
@@ -72,5 +76,11 @@ public class PlayerMovement : MonoBehaviour
         //
         // float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         // _rb.rotation = angle;
+    }
+
+    public string Faced
+    {
+        get => faced;
+        set => faced = value;
     }
 }
