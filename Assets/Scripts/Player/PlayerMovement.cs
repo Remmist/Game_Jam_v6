@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     
     [SerializeField] private float moveSpeed;
+    private float _currentSpeed;
     
     private Vector2 _movement;
 
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _currentSpeed = moveSpeed;
     }
     
 
@@ -74,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _movement * moveSpeed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + _movement * _currentSpeed * Time.fixedDeltaTime);
     }
 
     public string Faced
@@ -89,9 +91,11 @@ public class PlayerMovement : MonoBehaviour
         set => _direction = value;
     }
 
-    public float Speed
+    public float CurrentSpeed
     {
-        get => moveSpeed;
-        set => moveSpeed = value;
+        get => _currentSpeed;
+        set => _currentSpeed = value;
     }
+
+    public float MoveSpeed => moveSpeed;
 }

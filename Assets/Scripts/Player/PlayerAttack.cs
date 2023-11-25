@@ -87,9 +87,9 @@ public class PlayerAttack : MonoBehaviour
     
     private IEnumerator PlaceDebuff()
     {
-        _playerMovement.Speed = 1f;
+        _playerMovement.CurrentSpeed = _playerMovement.CurrentSpeed * 0.5f;
         yield return new WaitForSeconds(debuffTime);
-        _playerMovement.Speed = 5f;
+        _playerMovement.CurrentSpeed = _playerMovement.MoveSpeed;
     }
 
     private IEnumerator AttackSphere()
