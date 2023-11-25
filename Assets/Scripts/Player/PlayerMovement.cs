@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
     
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed;
     
     private Vector2 _movement;
 
@@ -87,5 +87,11 @@ public class PlayerMovement : MonoBehaviour
     {
         get => _direction;
         set => _direction = value;
+    }
+
+    public float Speed
+    {
+        get => moveSpeed;
+        set => moveSpeed = value;
     }
 }
