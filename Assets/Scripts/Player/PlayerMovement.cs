@@ -10,10 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _movement;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -21,11 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
-    }
-
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
