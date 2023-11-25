@@ -9,8 +9,6 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private float attackRange;
     [SerializeField] private float attackRate;
-    
-    // [SerializeField] private LayerMask layerToAttack;
     private bool _isReadyToAttack;
 
     private PlayerConfig _playerConfig;
@@ -32,13 +30,13 @@ public class PlayerAttack : MonoBehaviour
     {
         _isReadyToAttack = false;
         Collider2D[] hitObj = Physics2D.OverlapCircleAll(attackCircle.position, attackRange);
-        // foreach (var hit in hitObj)
-        // {
-        //     if (hit.GetComponent<>() != null)
-        //     {
-        //         hit.TakeDamage(_playerConfig.CurrentDamage);
-        //     }
-        // }
+        foreach (var hit in hitObj)
+        {
+            if (hit.GetComponent<EnemyConfig>() != null)
+            {
+                hit.GetComponent<EnemyConfig>().TakeDamage(_playerConfig.CurrentDamage);
+            }
+        }
         yield return new WaitForSeconds(attackRate);
         _isReadyToAttack = true;
     }

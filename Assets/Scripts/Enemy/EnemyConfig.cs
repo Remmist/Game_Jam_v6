@@ -18,8 +18,7 @@ public class EnemyConfig : MonoBehaviour
         _currentDamage = maxDamage;
         _isAlive = true;
     }
-
-
+    
     public void TakeDamage(int damage)
     {
         if (!_isAlive)
