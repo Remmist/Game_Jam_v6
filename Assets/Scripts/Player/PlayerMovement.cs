@@ -9,15 +9,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     private Vector2 _movement;
+
+    
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+
     void Update()
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
-    }
-
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
