@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1957496763565493411}
   - component: {fileID: 1078863893902280754}
   - component: {fileID: 2129933690454504750}
+  - component: {fileID: -5577241858297789511}
+  - component: {fileID: 5429180953595107226}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -179,3 +181,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   rotationSpeed: 100
+--- !u!114 &-5577241858297789511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068080297556509159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4474ed146d411df40aa022f404fdf8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+--- !u!114 &5429180953595107226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068080297556509159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5e1e1e1ab773e45956371b201daa84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  maxDamage: 0
