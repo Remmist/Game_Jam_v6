@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   maxDamage: 10
+  rotationDamage: 30
 --- !u!114 &7927958607579177244
 MonoBehaviour:
   m_ObjectHideFlags: 0

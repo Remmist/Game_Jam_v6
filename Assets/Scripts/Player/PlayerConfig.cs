@@ -9,6 +9,7 @@ public class PlayerConfig : MonoBehaviour
     private int _currentHealth;
 
     [SerializeField] private int maxDamage;
+    [SerializeField] private int rotationDamage;
     private int _currentDamage;
 
     private bool _isAlive;
@@ -56,5 +57,11 @@ public class PlayerConfig : MonoBehaviour
     {
         get => _isAlive;
         set => _isAlive = value;
+    }
+
+    public int RotationDamage
+    {
+        get => rotationDamage;
+        set => rotationDamage = value;
     }
 }

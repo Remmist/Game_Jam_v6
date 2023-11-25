@@ -19,11 +19,13 @@ public class PlayerAttack : MonoBehaviour
     
     private PlayerConfig _playerConfig;
     private PlayerMovement _playerMovement;
+    private Animator _animator;
 
     private void Awake()
     {
         _playerConfig = GetComponent<PlayerConfig>();
         _playerMovement = GetComponent<PlayerMovement>();
+        _animator = GetComponent<Animator>();
         _isReadyToAttack = true;
         attackLeft.SetActive(false);
         attackRight.SetActive(false);
@@ -38,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Mouse1) && _isReadyToAttack)
         {
+            _animator.SetTrigger("RotationAttack");
             StartCoroutine(AttackSphere());
         }
     }
@@ -67,7 +70,7 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] hitObj = Physics2D.OverlapCircleAll(attackCircle.position, attackRange, enemyLayer);
         foreach (var hit in hitObj)
         {
-            hit.GetComponent<EnemyConfig>().TakeDamage(_playerConfig.CurrentDamage);
+            hit.GetComponent<EnemyConfig>().TakeDamage(_playerConfig.RotationDamage);
         }
         yield return new WaitForSeconds(sphereAttackRate);
         _isReadyToAttack = true;
