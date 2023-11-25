@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRate;
     [SerializeField] private float sphereAttackRate;
     private bool _isReadyToAttack;
+    private bool _isReadyToAttackSphere;
 
     [SerializeField] private GameObject attackLeft;
     [SerializeField] private GameObject attackRight;
@@ -28,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
         _playerMovement = GetComponent<PlayerMovement>();
         _animator = GetComponent<Animator>();
         _isReadyToAttack = true;
+        _isReadyToAttackSphere = true;
         attackLeft.SetActive(false);
         attackRight.SetActive(false);
     }
@@ -37,9 +39,17 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && _isReadyToAttack)
         {
             StartCoroutine(Attack(_playerMovement.Faced));
+            if (_playerMovement.Direction == "front")
+            {
+                _animator.SetTrigger("FrontAttack");
+            }
+            else
+            {
+                _animator.SetTrigger("BackAttack");
+            }
         }
         
-        if (Input.GetKeyDown(KeyCode.Mouse1) && _isReadyToAttack)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && _isReadyToAttackSphere)
         {
             _animator.SetTrigger("RotationAttack");
             StartCoroutine(AttackSphere());
@@ -75,14 +85,14 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator AttackSphere()
     {
-        _isReadyToAttack = false;
+        _isReadyToAttackSphere = false;
         Collider2D[] hitObj = Physics2D.OverlapCircleAll(attackCircle.position, attackRange, enemyLayer);
         foreach (var hit in hitObj)
         {
             hit.GetComponent<EnemyConfig>().TakeDamage(_playerConfig.RotationDamage);
         }
         yield return new WaitForSeconds(sphereAttackRate);
-        _isReadyToAttack = true;
+        _isReadyToAttackSphere = true;
     }
     
     private void OnDrawGizmosSelected()
@@ -94,5 +104,10 @@ public class PlayerAttack : MonoBehaviour
         
         Gizmos.DrawWireSphere(attackCircle.position, attackRange);
     }
-    
+
+    public bool IsReadyToAttack
+    {
+        get => _isReadyToAttack;
+        set => _isReadyToAttack = value;
+    }
 }
