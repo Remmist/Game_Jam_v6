@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerConfig _playerConfig;
     private PlayerMovement _playerMovement;
     private Animator _animator;
+    [SerializeField] private ParticleSystem ps;
 
     private void Awake()
     {
@@ -42,6 +43,14 @@ public class PlayerAttack : MonoBehaviour
         {
             _animator.SetTrigger("RotationAttack");
             StartCoroutine(AttackSphere());
+            if (ps.isPlaying)
+            {
+                ps.Stop();
+            }
+            else
+            {
+                ps.Play();
+            }
         }
     }
 
