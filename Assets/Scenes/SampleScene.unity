@@ -137,11 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9108192342561347004, guid: 0ff3c720fcabd494d809a307e3608c5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.057346
+      value: -6.792
       objectReference: {fileID: 0}
     - target: {fileID: 9108192342561347004, guid: 0ff3c720fcabd494d809a307e3608c5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.21488887
+      value: 2.483
       objectReference: {fileID: 0}
     - target: {fileID: 9108192342561347004, guid: 0ff3c720fcabd494d809a307e3608c5d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -242,7 +242,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 306738425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33899945, y: -0.00000029802322, z: -10}
+  m_LocalPosition: {x: -0.3389995, y: -0.00000014901161, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1266067538}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -372,7 +372,7 @@ Transform:
   m_GameObject: {fileID: 951895464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33899945, y: -0.00000029802322, z: -10}
+  m_LocalPosition: {x: -0.3389995, y: -0.00000014901161, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -522,6 +522,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2453201035388603561, guid: 8c84db62ac4baf34685594878666ed76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289509081359484698, guid: 8c84db62ac4baf34685594878666ed76, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
