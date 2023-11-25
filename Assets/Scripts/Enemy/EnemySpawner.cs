@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject enemyPrefab1;
+    [SerializeField] private GameObject enemyPrefab2;
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
 
@@ -23,7 +21,15 @@ public class EnemySpawner : MonoBehaviour
 
         if (_timeUntilSpawn <= 0)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            var rand = new System.Random();
+            if (rand.Next(0, 1) == 1)
+            {
+                Instantiate(enemyPrefab2, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(enemyPrefab1, transform.position, Quaternion.identity);
+            }
             SetTimeUntilSpawn();
         }
     }
