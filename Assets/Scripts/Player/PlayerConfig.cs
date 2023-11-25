@@ -39,5 +39,22 @@ public class PlayerConfig : MonoBehaviour
         _isAlive = false;
         Debug.Log("Player is died!");
     }
-    
+
+    public int CurrentHealth
+    {
+        get => _currentHealth;
+        set => _currentHealth = value;
+    }
+
+    public int CurrentDamage
+    {
+        get => _currentDamage;
+        set => _currentDamage = value;
+    }
+
+    public bool IsAlive
+    {
+        get => _isAlive;
+        set => _isAlive = value;
+    }
 }
