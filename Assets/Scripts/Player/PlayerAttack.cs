@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRate;
     [SerializeField] private float sphereAttackRate;
     private bool _isReadyToAttack;
+    private float _debuffTime;
 
     [SerializeField] private GameObject attackLeft;
     [SerializeField] private GameObject attackRight;
@@ -21,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMovement _playerMovement;
     private Animator _animator;
     [SerializeField] private ParticleSystem ps;
+    [SerializeField] private ParticleSystem psCheese;
 
     private void Awake()
     {
@@ -30,6 +32,7 @@ public class PlayerAttack : MonoBehaviour
         _isReadyToAttack = true;
         attackLeft.SetActive(false);
         attackRight.SetActive(false);
+        _debuffTime = 1f;
     }
 
     private void Update()
@@ -84,6 +87,13 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(sphereAttackRate);
         _isReadyToAttack = true;
     }
+
+    private IEnumerator PlaceDebuff()
+    {
+        _playerMovement.setSpeed(1f);
+        yield return new WaitForSeconds(_debuffTime);
+        _playerMovement.setSpeed(5f);
+    }
     
     private void OnDrawGizmosSelected()
     {
@@ -94,5 +104,20 @@ public class PlayerAttack : MonoBehaviour
         
         Gizmos.DrawWireSphere(attackCircle.position, attackRange);
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            if (psCheese.isPlaying)
+            {
+                psCheese.Stop();
+            }
+            else
+            {
+                psCheese.Play();
+                StartCoroutine(PlaceDebuff());
+            }
+        }
+    }
 }

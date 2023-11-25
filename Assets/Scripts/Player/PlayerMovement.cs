@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
 
     [SerializeField] private Camera cam;
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed;
     
     private Vector2 _movement;
     private Vector2 _mousePos;
@@ -82,5 +82,10 @@ public class PlayerMovement : MonoBehaviour
     {
         get => faced;
         set => faced = value;
+    }
+
+    public void setSpeed(float speed)
+    {
+        moveSpeed = speed;
     }
 }
