@@ -9,23 +9,18 @@ public class EnemyAttack : MonoBehaviour
     private bool _isReadyToAttack;
     [SerializeField] private float attackRate;
 
-    [SerializeField] private int damage;
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private EnemyConfig _enemyConfig;
 
     private void Awake()
     {
         _isReadyToAttack = true;
+        _enemyConfig = GetComponent<EnemyConfig>();
     }
 
     private IEnumerator Attack(Collision2D other)
     {
-        Debug.Log("Attack");
         _isReadyToAttack = false;
-        other.gameObject.GetComponent<PlayerConfig>().TakeDamage(damage);
+        other.gameObject.GetComponent<PlayerConfig>().TakeDamage(_enemyConfig.CurrentDamage);
         yield return new WaitForSeconds(attackRate);
         _isReadyToAttack = true;
     }

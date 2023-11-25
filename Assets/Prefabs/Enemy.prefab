@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2129933690454504750}
   - component: {fileID: -5577241858297789511}
   - component: {fileID: 5429180953595107226}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &1957496763565493411
 CapsuleCollider2D:
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4474ed146d411df40aa022f404fdf8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  attackRate: 1
 --- !u!114 &5429180953595107226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,5 +206,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e1e1e1ab773e45956371b201daa84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  maxDamage: 0
+  maxHealth: 100
+  maxDamage: 20

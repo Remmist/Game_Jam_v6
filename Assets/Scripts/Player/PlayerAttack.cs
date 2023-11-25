@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Transform attackCircle;
-
+    [SerializeField] private LayerMask enemyLayer;
+    
     [SerializeField] private float attackRange;
     [SerializeField] private float attackRate;
     private bool _isReadyToAttack;
@@ -16,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _playerConfig = GetComponent<PlayerConfig>();
+        _isReadyToAttack = true;
     }
 
     private void Update()
@@ -29,13 +31,10 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator Attack()
     {
         _isReadyToAttack = false;
-        Collider2D[] hitObj = Physics2D.OverlapCircleAll(attackCircle.position, attackRange);
+        Collider2D[] hitObj = Physics2D.OverlapCircleAll(attackCircle.position, attackRange, enemyLayer);
         foreach (var hit in hitObj)
         {
-            if (hit.GetComponent<EnemyConfig>() != null)
-            {
-                hit.GetComponent<EnemyConfig>().TakeDamage(_playerConfig.CurrentDamage);
-            }
+            hit.GetComponent<EnemyConfig>().TakeDamage(_playerConfig.CurrentDamage);
         }
         yield return new WaitForSeconds(attackRate);
         _isReadyToAttack = true;
