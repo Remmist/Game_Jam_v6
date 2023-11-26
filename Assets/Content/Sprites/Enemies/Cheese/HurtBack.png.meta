@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09e559e46dd00b54880e5443e4619ceb
+guid: 1a0eefe4ec5fcfd4f93d7b8fdbd3b5ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HurtBack_0
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 21
+        width: 870
+        height: 1803
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f02939e57d2684fa45777e8db1d907
+      internalID: 1863399354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtBack_1
+      rect:
+        serializedVersion: 2
+        x: 2238
+        y: 549
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b158e8406742ee47af83519b3fffd67
+      internalID: 1279939145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtBack_2
+      rect:
+        serializedVersion: 2
+        x: 2244
+        y: 21
+        width: 869
+        height: 1883
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d798e580360d26240871b0de6ddafa90
+      internalID: -1896787556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtBack_3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 469
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405756fa5f11c3c40a18952feec793d5
+      internalID: -1108272281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +242,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HurtBack_0: 1863399354
+      HurtBack_1: 1279939145
+      HurtBack_2: -1896787556
+      HurtBack_3: -1108272281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

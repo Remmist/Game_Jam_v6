@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09e559e46dd00b54880e5443e4619ceb
+guid: 59974364280fa234db5962745987f935
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 800
+  spritePixelsToUnits: 850
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -147,7 +147,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PigAttackAnimation_1_0
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 82
+        width: 1285
+        height: 906
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c1d877f960b42f48bccb3be1d3ae27d
+      internalID: 896066901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PigAttackAnimation_1_1
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 70
+        width: 1242
+        height: 934
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adadf005eeb4f384f98a25a8f71255e5
+      internalID: -821957432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PigAttackAnimation_1_2
+      rect:
+        serializedVersion: 2
+        x: 4258
+        y: 82
+        width: 1222
+        height: 1106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6589dc1354af27244ab8792d1eb4bba5
+      internalID: -2040001954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PigAttackAnimation_1_3
+      rect:
+        serializedVersion: 2
+        x: 6742
+        y: 441
+        width: 1242
+        height: 1219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82b8b1a7d79bfa4e9fe0e3e742f022d
+      internalID: -659570364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +242,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PigAttackAnimation_1_0: 896066901
+      PigAttackAnimation_1_1: -821957432
+      PigAttackAnimation_1_2: -2040001954
+      PigAttackAnimation_1_3: -659570364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,15 @@ public class EnemyConfig : MonoBehaviour
 
     private bool _isAlive;
 
+    private EnemyMovement _enemyMovement;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _enemyMovement = GetComponent<EnemyMovement>();
+        _animator = GetComponent<Animator>();
+    }
+
     private void Start()
     {
         _currentHealth = maxHealth;
@@ -25,6 +35,16 @@ public class EnemyConfig : MonoBehaviour
         {
             return;
         }
+
+        if (_enemyMovement.TargetDirection.y > 0)
+        {
+            _animator.SetTrigger("HurtBack");
+        }
+        else
+        {
+            _animator.SetTrigger("HurtFront");
+        }
+        
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {

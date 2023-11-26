@@ -122,4 +122,10 @@ public class EnemyMovement : MonoBehaviour
             _animator.SetBool("IsRunningFront", false);
         }
     }
+
+    public Vector2 TargetDirection
+    {
+        get => _targetDirection;
+        set => _targetDirection = value;
+    }
 }
