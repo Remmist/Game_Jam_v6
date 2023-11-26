@@ -10,11 +10,13 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float attackRate;
 
     private EnemyConfig _enemyConfig;
+    private Animator _animator;
 
     private void Awake()
     {
         _isReadyToAttack = true;
         _enemyConfig = GetComponent<EnemyConfig>();
+        _animator = GetComponent<Animator>();
     }
 
     private IEnumerator Attack(Collision2D other)
@@ -29,6 +31,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && _isReadyToAttack)
         {
+            _animator.SetTrigger("Attack");
             StartCoroutine(Attack(other));
         }
     }
