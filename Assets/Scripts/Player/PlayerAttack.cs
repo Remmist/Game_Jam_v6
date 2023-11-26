@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private Animator _animator;
     [SerializeField] private ParticleSystem ps;
     [SerializeField] private ParticleSystem psCheese;
+    [SerializeField] private AudioSource attack1;
+    [SerializeField] private AudioSource attack2;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 _animator.SetTrigger("BackAttack");
             }
+            attack1.Play();
         }
         
         if (Input.GetKeyDown(KeyCode.Mouse1) && _isReadyToAttackSphere)
@@ -63,6 +66,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 ps.Play();
             }
+            attack2.Play();
         }
     }
 
