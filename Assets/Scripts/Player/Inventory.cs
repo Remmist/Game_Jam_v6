@@ -1,6 +1,7 @@
 using System;
 using EventSystems;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Inventory : MonoBehaviour
         {
             _isFinish = true;
             Debug.Log("FINISH!");
+            SceneManager.LoadScene("Outro");
         }
     }
     
