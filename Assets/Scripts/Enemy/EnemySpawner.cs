@@ -3,8 +3,8 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab1;
-    [SerializeField] private GameObject enemyPrefab2;
+    [SerializeField] private GameObject pig;
+    [SerializeField] private GameObject cheese;
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
 
@@ -22,13 +22,13 @@ public class EnemySpawner : MonoBehaviour
         if (_timeUntilSpawn <= 0)
         {
             var rand = new System.Random();
-            if (rand.Next(0, 1) == 1)
+            if (rand.Next(0, 100) < 70)
             {
-                Instantiate(enemyPrefab2, transform.position, Quaternion.identity);
+                Instantiate(pig, transform.position, Quaternion.identity);
             }
             else
             {
-                Instantiate(enemyPrefab1, transform.position, Quaternion.identity);
+                Instantiate(cheese, transform.position, Quaternion.identity);
             }
             SetTimeUntilSpawn();
         }
