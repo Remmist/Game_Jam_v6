@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   awareOfPlayer: 0
   directionToPlayer: {x: 0, y: 0}
-  playerAwarenessDistance: 5
+  playerAwarenessDistance: 20
 --- !u!114 &2129933690454504750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e1e1e1ab773e45956371b201daa84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  maxDamage: 20
+  maxHealth: 60
+  maxDamage: 10
 --- !u!95 &3436324242181311628
 Animator:
   serializedVersion: 5
