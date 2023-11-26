@@ -22,13 +22,18 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.tag == "Player")
+        if (other.collider.tag == "Player" || other.collider.tag == "Default")
         {
+
+            if (other.collider.tag == "Default")
+            {
+                Destroy(gameObject);
+            }
             other.collider.GetComponent<PlayerConfig>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
-    
+
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
