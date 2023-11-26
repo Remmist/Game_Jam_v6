@@ -16,6 +16,8 @@ public class PlayerConfig : MonoBehaviour
     private Animator _animator;
     private PlayerMovement _playerMovement;
 
+    [SerializeField] private AudioSource death;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -56,6 +58,7 @@ public class PlayerConfig : MonoBehaviour
     private void Die()
     {
         _isAlive = false;
+        death.Play();
         Debug.Log("Player is died!");
     }
 

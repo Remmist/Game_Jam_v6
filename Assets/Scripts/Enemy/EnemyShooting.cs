@@ -10,6 +10,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private float coolDown;
     private bool _isReady;
     private Animator _animator;
+    [SerializeField] private AudioSource shoot;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class EnemyShooting : MonoBehaviour
         if (_awarenessController.awareOfPlayer && _isReady)
         {
             StartCoroutine(Shoot());
+            shoot.Play();
         }
     }
 
