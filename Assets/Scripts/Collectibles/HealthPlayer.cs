@@ -1,8 +1,11 @@
+using System;
+using EventSystems;
 using UnityEngine;
 
 public class HealthPlayer : MonoBehaviour
 {
     [SerializeField] private int heal;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Player")
