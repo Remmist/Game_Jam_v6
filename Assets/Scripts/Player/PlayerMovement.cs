@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerAttack = GetComponent<PlayerAttack>();
         _currentSpeed = moveSpeed;
+        Time.timeScale = 1f;
     }
     
 
