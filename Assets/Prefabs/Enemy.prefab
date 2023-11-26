@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 300
-  directionChangeRate: 1
+  directionChangeRate: -100
   screenBorder: -30
 --- !u!114 &-5577241858297789511
 MonoBehaviour:
