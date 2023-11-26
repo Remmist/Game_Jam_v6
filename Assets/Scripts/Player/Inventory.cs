@@ -1,3 +1,5 @@
+using System;
+using EventSystems;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -8,8 +10,16 @@ public class Inventory : MonoBehaviour
     private bool _salad;
     private bool _bacon;
     private bool _cheese;
-    
-    
+
+    private void Awake()
+    {
+        GameEventSystem.OnPlayerPickUpCollectible += ASD;
+    }
+
+    private void OnDestroy()
+    {
+        GameEventSystem.OnPlayerPickUpCollectible -= ASD;
+    }
 
     private void Update()
     {
@@ -30,18 +40,35 @@ public class Inventory : MonoBehaviour
     public bool Salad
     {
         get => _salad;
-        set => _salad = value;
+        set
+        {
+            _salad = value;
+            GameEventSystem.UpdateScore("Salad");
+        }
     }
 
     public bool Bacon
     {
         get => _bacon;
-        set => _bacon = value;
+        set 
+        {
+            _bacon = value;
+            GameEventSystem.UpdateScore("Bacon");
+        }
     }
 
     public bool Cheese
     {
         get => _cheese;
-        set => _cheese = value;
+        set 
+        {
+            _cheese = value;
+            GameEventSystem.UpdateScore("Cheese");
+        }
+    }
+
+    public void ASD(string value)
+    {
+        
     }
 }
