@@ -128,4 +128,6 @@ public class EnemyMovement : MonoBehaviour
         get => _targetDirection;
         set => _targetDirection = value;
     }
+    
+    
 }

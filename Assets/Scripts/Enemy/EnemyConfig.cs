@@ -55,6 +55,16 @@ public class EnemyConfig : MonoBehaviour
     private void Die()
     {
         _isAlive = false;
+        _enemyMovement.TargetDirection = new Vector2(0, 0);
+        GetComponent<Rigidbody2D>().velocity = _enemyMovement.TargetDirection * 0;
+        if (_enemyMovement.TargetDirection.y > 0)
+        {
+            _animator.SetTrigger("DeadBack");
+        }
+        else
+        {
+            _animator.SetTrigger("DeadFront");
+        }
         Debug.Log("Enemy is died!");
     }
 
