@@ -13,6 +13,14 @@ public class PlayerConfig : MonoBehaviour
     private int _currentDamage;
 
     private bool _isAlive;
+    private Animator _animator;
+    private PlayerMovement _playerMovement;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _playerMovement = GetComponent<PlayerMovement>();
+    }
 
     private void Start()
     {
@@ -28,6 +36,16 @@ public class PlayerConfig : MonoBehaviour
         {
             return;
         }
+
+        if (_playerMovement.Direction == "front")
+        {
+            _animator.SetTrigger("HurtFront");
+        }
+        else
+        {
+            _animator.SetTrigger("HurtBack");
+        }
+        
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
@@ -63,5 +81,11 @@ public class PlayerConfig : MonoBehaviour
     {
         get => rotationDamage;
         set => rotationDamage = value;
+    }
+
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
     }
 }

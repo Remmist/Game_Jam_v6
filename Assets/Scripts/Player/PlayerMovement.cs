@@ -97,5 +97,9 @@ public class PlayerMovement : MonoBehaviour
         set => _currentSpeed = value;
     }
 
-    public float MoveSpeed => moveSpeed;
+    public float MoveSpeed
+    {
+        get => moveSpeed;
+        set => moveSpeed = value;
+    }
 }

@@ -8,16 +8,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
 
+    private EnemyCounter _enemyCounter;
+
     private float _timeUntilSpawn;
 
     private void Awake()
     {
         SetTimeUntilSpawn();
+        _enemyCounter = FindObjectOfType<EnemyCounter>();
     }
     
     void Update()
     {
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        
         _timeUntilSpawn -= Time.deltaTime;
+        
+        if (enemies.Length >= _enemyCounter.MaxEnemiesOnLevel)
+        {
+            return;
+        }
 
         if (_timeUntilSpawn <= 0)
         {
