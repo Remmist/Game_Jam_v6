@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 _targetDirection;
     private Camera _camera;
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         _targetDirection = transform.up;
         _camera = Camera.main;
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -101,6 +103,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void HandleAnimation()
     {
+        if (_targetDirection.x < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        if(_targetDirection.x > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
         if (_targetDirection.y < 0)
         {
             _animator.SetBool("IsRunningFront", true);

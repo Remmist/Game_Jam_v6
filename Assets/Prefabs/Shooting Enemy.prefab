@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 5024470268051903351}
   - component: {fileID: 246933191812546324}
   - component: {fileID: 7826943429858471963}
-  - component: {fileID: 8362531326764431781}
   - component: {fileID: 8739081324360718706}
   - component: {fileID: 2936057168072961875}
   - component: {fileID: 9051868709480266409}
@@ -182,19 +181,6 @@ MonoBehaviour:
   rotationSpeed: 300
   directionChangeRate: 1
   screenBorder: -30
---- !u!114 &8362531326764431781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5252284564064041034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4474ed146d411df40aa022f404fdf8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRate: 1
 --- !u!114 &8739081324360718706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1670051768866185681, guid: b16308e45cbec0e45ba1e85f544d9c7e, type: 3}
-  coolDown: 1
+  coolDown: 3
 --- !u!60 &9051868709480266409
 PolygonCollider2D:
   m_ObjectHideFlags: 0
