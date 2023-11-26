@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyAwarenessController _enemyAwarenessController;
     private Vector2 _targetDirection;
     private Camera _camera;
+    private Animator _animator;
 
     private void Awake()
     {
@@ -21,19 +22,20 @@ public class EnemyMovement : MonoBehaviour
         _enemyAwarenessController = GetComponent<EnemyAwarenessController>();
         _targetDirection = transform.up;
         _camera = Camera.main;
+        _animator = GetComponent<Animator>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        HandleAnimation();
     }
 
     private void FixedUpdate()
     {
         UpdateTargetDirection();
-        RotateTowardsTarget();
+        //SetRotation();
         SetVelocity();
     }
 
@@ -83,16 +85,31 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void RotateTowardsTarget()
+    private void SetRotation()
     {
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
-        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        Quaternion rotation =
+            Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         
         _rb.SetRotation(rotation);
     }
-
+    
     private void SetVelocity()
-    { 
-        _rb.velocity = transform.up * moveSpeed;
+    {
+        _rb.velocity = moveSpeed * _targetDirection;
+    }
+
+    private void HandleAnimation()
+    {
+        if (_targetDirection.y < 0)
+        {
+            _animator.SetBool("IsRunningFront", true);
+            _animator.SetBool("IsRunningBack", false);
+        }
+        else if(_targetDirection.y > 0)
+        {
+            _animator.SetBool("IsRunningBack", true);
+            _animator.SetBool("IsRunningFront", false);
+        }
     }
 }

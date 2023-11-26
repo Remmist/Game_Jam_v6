@@ -9,6 +9,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float coolDown;
     private bool _isReady;
+    private Animator _animator;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class EnemyShooting : MonoBehaviour
     private void Awake()
     {
         _awarenessController = GetComponent<EnemyAwarenessController>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,6 +34,14 @@ public class EnemyShooting : MonoBehaviour
     {
         _isReady = false;
         Instantiate(bullet, transform.position, Quaternion.identity);
+        if (_animator.GetBool("IsRunningFront"))
+        {
+            _animator.SetTrigger("ShootFront");
+        }
+        else
+        {
+            _animator.SetTrigger("ShootBack");
+        }
         yield return new WaitForSeconds(coolDown);
         _isReady = true;
     }
