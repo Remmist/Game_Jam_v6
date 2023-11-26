@@ -11,6 +11,7 @@ public class EnemyAttack : MonoBehaviour
 
     private EnemyConfig _enemyConfig;
     private Animator _animator;
+    [SerializeField] private AudioSource attack;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class EnemyAttack : MonoBehaviour
         {
             _animator.SetTrigger("Attack");
             StartCoroutine(Attack(other));
+            attack.Play();
         }
     }
 
