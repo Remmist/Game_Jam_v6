@@ -32,4 +32,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public void TutorialButton()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
