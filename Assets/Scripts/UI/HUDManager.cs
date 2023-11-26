@@ -11,25 +11,26 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private Image bacon;
     [SerializeField] private Image cheese;
     [SerializeField] private Image salad;
-    [SerializeField] private Image healthBar;
     [SerializeField] private Sprite checkedBacon;
     [SerializeField] private Sprite checkedCheese;
     [SerializeField] private Sprite checkedSalad;
-    [SerializeField] private Sprite healthBarLow;
-    [SerializeField] private Sprite healthBarMed;
-    [SerializeField] private Sprite healthBarHigh;
-
-    private PlayerConfig _playerConfig;
+    [SerializeField] private Slider _healthBar;
+    [SerializeField] private GameObject player;
 
     private void Awake()
     {
-        _playerConfig = GetComponent<PlayerConfig>();
         GameEventSystem.OnPlayerPickUpCollectible += UpdateScore;
     }
 
     private void OnDestroy()
     {
         GameEventSystem.OnPlayerPickUpCollectible -= UpdateScore;
+    }
+
+    private void Update()
+    {
+        _healthBar.maxValue = player.GetComponent<PlayerConfig>().MaxHealth;
+        _healthBar.value = player.GetComponent<PlayerConfig>().CurrentHealth;
     }
 
     private void UpdateScore(string Name)
@@ -45,21 +46,6 @@ public class HUDManager : MonoBehaviour
         else
         {
             salad.sprite = checkedSalad;
-        }
-    }
-
-    private void UpdateHealthBar()
-    {
-        if (_playerConfig.CurrentHealth <= 33)
-        {
-            healthBar.sprite = healthBarLow;
-        }else if(_playerConfig.CurrentHealth > 33 && _playerConfig.CurrentHealth <= 66)
-        {
-            healthBar.sprite = healthBarMed;
-        }
-        else
-        {
-            healthBar.sprite = healthBarHigh;
         }
     }
 }
